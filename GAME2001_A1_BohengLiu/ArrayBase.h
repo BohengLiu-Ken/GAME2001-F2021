@@ -198,7 +198,7 @@ public:
         m_growSize = val;
     }
 
-private:
+protected:
     // Private functions
     // Recursive Merge Sort
     void MergeSort(T* tempArray, int lowerBound, int upperBound) {
@@ -275,7 +275,7 @@ private:
         return true;
     }
 
-private:
+protected:
     // Private Variables
     T* m_array; // Pointer to the beginning of the array
 

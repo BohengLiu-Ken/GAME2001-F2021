@@ -5,20 +5,20 @@
 template<class T>
 class OrderedArray : public ArrayBase<T> {
 public:
-
-    int push(T val) {
-        assert(a_array != NULL);
-        if (m_numElements == m_maxSize)
-            Expand();
+    using ArrayBase<T>::ArrayBase;
+    void push(T val) {
+        assert(this->m_array != NULL);
+        if (this->m_numElements == this->m_maxSize)
+            this->Expand();
 
         int dest = 0;
-        for (; dest < m_numElements && m_array[i] < val; dest++);
-        if (m_array[dest] == val) return -1;
-        int i = dest;
-        for (; i < m_numElements; i++)
-            m_array[i + 1] = m_array[i];
-        m_array[dest] = val;
-        return dest;
+        for (; dest < this->m_numElements && this->m_array[dest] < val; dest++);
+        if (this->m_array[dest] == val) return;
+        this->m_numElements++;
+        int i = this->m_numElements - 1;
+        for (; i > dest; i--)
+            this->m_array[i] = this->m_array[i - 1];
+        this->m_array[dest] = val;
     }
 
 };
