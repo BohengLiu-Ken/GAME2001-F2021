@@ -5,4 +5,5 @@
 
 template<class T>
 class UnorderedArray : public ArrayBase<T> {
+	using ArrayBase<T>::ArrayBase;
 };
